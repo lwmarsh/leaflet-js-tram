@@ -10,7 +10,7 @@ var map = L.map('map').setView([
 
 var tramIcon = L.icon({
     iconUrl: 'https://i.ibb.co/09BPNPn/stlogo-icon.png',
-    // iconUrl: 'https://i.ibb.co/ZXnTTjc/stlogo-icon-alt.png',
+    // iconUrl: 'https://i.ibb.co/ZXnTTjc/stlogo-icon-alt.png', // (Alternative icon)
     iconSize: [30, 33],
 });
 
@@ -42,14 +42,11 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.pn
  fetch('yellow-data.json')
  .then(response => response.json())
  .then(data => {
-     // Extract the LineString coordinates
      var routeFeature = data.features.find(f => f.geometry.type === 'LineString');
      var routeCoordinates = routeFeature.geometry.coordinates;
 
-     // Add the tram route to the map
      L.polyline(routeCoordinates.map(coord => [coord[1], coord[0]]), {color: 'yellow'}).addTo(map);
 
-     // Extract the stop points and add them to the map
      data.features.filter(f => f.geometry.type === 'Point').forEach(stop => {
          var stopCoords = stop.geometry.coordinates;
          L.marker([stopCoords[1], stopCoords[0]], {icon: tramIcon})
@@ -61,14 +58,11 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.pn
 fetch('blue-data.json')
  .then(response => response.json())
  .then(data => {
-     // Extract the LineString coordinates
      var routeFeature = data.features.find(f => f.geometry.type === 'LineString');
      var routeCoordinates = routeFeature.geometry.coordinates;
 
-     // Add the tram route to the map
      L.polyline(routeCoordinates.map(coord => [coord[1], coord[0]]), {color: 'darkblue'}).addTo(map);
 
-     // Extract the stop points and add them to the map
      data.features.filter(f => f.geometry.type === 'Point').forEach(stop => {
          var stopCoords = stop.geometry.coordinates;
          L.marker([stopCoords[1], stopCoords[0]], {icon: tramIcon})
@@ -80,14 +74,11 @@ fetch('blue-data.json')
 fetch('purple-data.json')
  .then(response => response.json())
  .then(data => {
-     // Extract the LineString coordinates
      var routeFeature = data.features.find(f => f.geometry.type === 'LineString');
      var routeCoordinates = routeFeature.geometry.coordinates;
 
-     // Add the tram route to the map
      L.polyline(routeCoordinates.map(coord => [coord[1], coord[0]]), {color: 'purple'}).addTo(map);
 
-     // Extract the stop points and add them to the map
      data.features.filter(f => f.geometry.type === 'Point').forEach(stop => {
          var stopCoords = stop.geometry.coordinates;
          L.marker([stopCoords[1], stopCoords[0]], {icon: tramIcon})
