@@ -9,8 +9,8 @@ var map = L.map('map').setView([
 53.380669568195714, -1.4702109856030177], 13);
 
 var tramIcon = L.icon({
-    // iconUrl: 'https://i.ibb.co/09BPNPn/stlogo-icon.png',
-    iconUrl: 'https://i.ibb.co/ZXnTTjc/stlogo-icon-alt.png',
+    iconUrl: 'https://i.ibb.co/09BPNPn/stlogo-icon.png',
+    // iconUrl: 'https://i.ibb.co/ZXnTTjc/stlogo-icon-alt.png',
     iconSize: [30, 33],
 });
 
